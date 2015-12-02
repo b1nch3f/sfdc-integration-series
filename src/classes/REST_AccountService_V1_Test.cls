@@ -11,8 +11,10 @@ private class REST_AccountService_V1_Test {
         RestContext.request.requestURI = '/services/apexrest/v1/accounts/';  
         RestContext.request.httpMethod = 'GET';
         
-        List<Account> results = REST_AccountService_V1.doGet();
-        system.debug(results);
+        REST_AccountService_V1.AccountWrapper results = new REST_AccountService_V1.AccountWrapper();
+        results = REST_AccountService_V1.doGet();
+        system.assertNotEquals(null, results.acctList);
+        system.assertEquals('Success', results.message);
         Test.stopTest();
 
     }
