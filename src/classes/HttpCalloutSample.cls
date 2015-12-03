@@ -1,6 +1,6 @@
 public class HttpCalloutSample {
     //Pass in the endpoint to be used 
-    public static String getContent(String city){ 
+    public static HttpResponse getContent(String city){ 
         
         Http h=new Http(); 
         //Instantiate a new HTTP request,specify the method (GET) as well as the endpoint 
@@ -15,6 +15,6 @@ public class HttpCalloutSample {
         
         //Send the request, andreturn a response 
         HttpResponse res = h.send(req); 
-        return res.getBody(); 
+        return res; 
     }
 }

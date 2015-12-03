@@ -1,17 +1,29 @@
 @isTest
 public class HttpCalloutSample_Test {
-    public static testmethod void testAccountCallout() {
+    
+    @isTest
+    private static void testCallout() {
+        //setup test data
         setTestData();
         
-        SingleRequestMock fakeResponse = new SingleRequestMock(200,
-                                                               'Complete',
-                                                               '[{"name": "Boston"}]',
-                                                               null);
-        Test.setMock(HttpCalloutMock.class, fakeResponse);
+        // Set mock callout class 
+        Test.setMock(HttpCalloutMock.class, new SingleRequestMock());
         
         Test.startTest();
-        String result = HttpCalloutSample.getContent('Boston');
-        System.assertNotEquals(null, result);
+        
+        // Call method to test.
+        // This causes a fake response to be sent
+        // from the class that implements HttpCalloutMock. 
+        HttpResponse res = HttpCalloutSample.getContent('Boston');
+        
+        // Verify response received contains fake values
+        String contentType = res.getHeader('Content-Type');
+        System.assert(contentType == 'application/json');
+        String actualValue = res.getBody();
+        String expectedValue = '{"foo":"bar"}';
+        System.assertEquals(actualValue, expectedValue);
+        System.assertEquals(200, res.getStatusCode());
+        
         Test.stopTest();
     }
     
