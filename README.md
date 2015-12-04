@@ -2,7 +2,9 @@
 
 ### Topics Covered
 
+# Rest Based Implementations
 ##1. Inbound Integration/Callin using Apex
-##2. Outbout Integraiton/Callout using Apex
+##2. Outbound Integraiton/Callout using Apex
 
-Part 1, 2 are REST based Integrations. Named Credentials and Custom Settings have been used whenever possible
+# SOAP Based Implementations
+##3. Inbound Integraiton/Callout using Apex
