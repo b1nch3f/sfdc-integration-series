@@ -4,7 +4,7 @@
 
 # Rest Based Implementations
 ##1. Inbound Integration/Callin using Apex
-##2. Outbound Integraiton/Callout using Apex
+##2. Outbound Integration/Callout using Apex
 
 # SOAP Based Implementations
-##3. Inbound Integraiton/Callout using Apex
+##3. Inbound Integration/Callin using Apex
